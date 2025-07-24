@@ -11,4 +11,8 @@ export const comments = [
     id: 3,
     text: "This is third comment",
   },
+  {
+    id: 4,
+    text: "This is fourth comment",
+  },
 ];
