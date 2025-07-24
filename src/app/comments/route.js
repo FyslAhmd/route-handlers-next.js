@@ -1,7 +1,12 @@
 import { comments } from "./data";
 
-export async function GET() {
-  return Response.json(comments);
+export async function GET(req) {
+  const searchParams = req.nextUrl.searchParams;
+  const query = searchParams.get("query");
+  const filteredComments = query
+    ? comments.filter((com) => com.text.includes(query))
+    : comments;
+  return Response.json(filteredComments);
 }
 
 export async function POST(req) {
